@@ -36,8 +36,9 @@ def get_cloosest_color(color: RGB) -> RGB:
         raise ValueError("Color must be a RGB")
     bg_color = get_bg_color(color)
     fg_color = get_fg_color(color, bg_color.rgb)
-    return Color(fg_color.fore, bg_color.back, bg_color.rgb)
-    #return Color(bg_color.fore, bg_color.back, RGB(0,0,0))
+    #return Color(fg_color.fore, bg_color.back, bg_color.rgb)
+    #return Color(fg_color.fore, bg_color.back, fg_color.rgb)
+    return Color(bg_color.fore, bg_color.back, RGB(0,0,0))
 
 
 def get_bg_color(color: RGB):
