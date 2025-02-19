@@ -37,21 +37,26 @@ img = np.array(img_obj.resize((MAX_WIDTH, int(MAX_WIDTH/(resio*2)))).convert('RG
 li = []
 for i in range(img.shape[0]):
     lj = []
+    t = ''
     for j in range(img.shape[1]):
         # new_image[i, j] = [0,0,255]
         img_color = img[i, j]
         rgb = mc.RGB(img_color[0], img_color[1], img_color[2])
         normal_color = mc.get_cloosest_color(rgb)
-        lj.append(normal_color)
-    li.append(lj)
-    print(f'{100 * i/img.shape[0]:.1f}',"%", end='           \r')
+        t += f"{normal_color.fore}{normal_color.back}M\33[0m"
+    print(t)
+        #lj.append(normal_color)
+    #li.append(lj)
+    #print(f'{100 * i/img.shape[0]:.1f}',"%", end='           \r')
 
+'''
 print()
 for i in li:
     t = ''
     for j in i:
         t += f"{j.fore}{j.back}M\33[0m"
     print(t)
+'''
 
 # ima = Image.fromarray(new_image, 'RGB')
 # ima.show()
